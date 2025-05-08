@@ -68,11 +68,11 @@ Salva in una variabile (fullPricedBook) il primo elemento di discountedBooks che
 const availableBooks = books.filter(b => b.available)
 //* console.log(availableBooks)
 
-const discountedBooks = availableBooks.map(b => ({ ...b, price: ((parseFloat(b.price.replace('€')) * .8).toFixed(2)) + '€' }))
+const discountedBooks = availableBooks.map(b => ({ ...b, price: ((parseFloat(b.price.replace('€', '')) * .8).toFixed(2)) + '€' }))
 //* console.log(discountedBooks)
 
 const fullPricedBook = discountedBooks.find(b =>
-    parseFloat(b.price.replace('€'))
+    parseFloat(b.price.replace('€', ''))
     % 1 === 0 //intendiamo qui dare un true/false alla condizione "il resto della divisione per 1 è == 0?"
     /*
     questo sopra poteva essere sostituito dal costrutto 
